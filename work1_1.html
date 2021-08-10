@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        class Product {
+            constructor (name, price) {
+                this.name = name;
+                this.price = price;
+            }
+            
+            make25PercentDiscount = function () {
+                this.price = this.price - this.price * 0.25;
+            }
+        }
+        
+        const p = new Product('яблоко', 100);
+        p.make25PercentDiscount();
+        
+        console.log(p);
+    </script>
+</body>
+
+</html>

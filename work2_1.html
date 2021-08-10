@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        class Post {
+            constructor (author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+            
+            edit(text) {
+                this.text = text;
+            }
+
+        }
+        
+        
+        class AttachedPost extends Post {
+            
+            constructor (edit, text, date) {
+                super(edit, text, date);
+                this.highlited = false;    
+            }
+            
+            makeTextHighliter() {
+                this.highlited = true;
+            }
+        }
+        
+        const p = new AttachedPost('A.', 'text', '2021-01-01');
+        p.makeTextHighliter();
+    </script>
+</body>
+
+</html>

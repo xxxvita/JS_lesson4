@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        function Post(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+        
+        Post.prototype.edit = function (text) {
+            this.text = text;
+        }
+        
+        
+        function AttachedPost (edit, text, date) {
+            Post.call(this, edit, text, date);
+            this.highlited = false;
+        }
+        
+        AttachedPost.prototype = new Object(Post.prototype);
+        AttachedPost.prototype.constructor = AttachedPost.constructor;
+        AttachedPost.prototype.makeTextHighliter = function () {
+            this.highlited = true;
+        }
+
+        const p = new AttachedPost('A.', 'text', '2021-01-01');
+        p.makeTextHighliter();
+    </script>
+</body>
+
+</html>
